@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Artisan Plombier – Dépannage & Installation Paris</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <style>
     :root {
       --blue: #2c5aa0;
@@ -25,15 +25,16 @@
       background: var(--warm-grey);
       color: var(--text);
       line-height: 1.6;
+      font-size: 16px;
     }
     
     /* Petite bannière de confiance en haut */
     .trust-banner {
       background: var(--dark-blue);
       color: white;
-      padding: 10px 0;
+      padding: 12px 15px;
       text-align: center;
-      font-size: 0.9em;
+      font-size: clamp(0.8em, 2.5vw, 0.9em);
       border-bottom: 2px solid var(--accent);
     }
     
@@ -42,7 +43,7 @@
       background: linear-gradient(rgba(44, 90, 160, 0.9), rgba(26, 58, 107, 0.9)), 
                   url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=1350&q=80') center/cover;
       color: #fff;
-      padding: 120px 20px;
+      padding: clamp(80px, 15vw, 120px) 20px;
       text-align: center;
       position: relative;
     }
@@ -50,9 +51,9 @@
     .expert-badge {
       background: var(--accent);
       color: white;
-      padding: 8px 20px;
+      padding: 10px 25px;
       border-radius: 25px;
-      font-size: 0.9em;
+      font-size: clamp(0.8em, 2.5vw, 0.9em);
       font-weight: bold;
       display: inline-block;
       margin-bottom: 20px;
@@ -66,32 +67,39 @@
     }
     
     header h1 {
-      font-size: 3em;
+      font-size: clamp(2em, 6vw, 3em);
       font-weight: 700;
       margin-bottom: 15px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      line-height: 1.2;
+      padding: 0 10px;
     }
     
     header p {
-      font-size: 1.3em;
+      font-size: clamp(1.1em, 3vw, 1.3em);
       opacity: 0.95;
       max-width: 600px;
       margin: 0 auto;
+      padding: 0 15px;
     }
     
     .btn {
       background: var(--accent);
       color: #fff;
-      padding: 16px 40px;
-      border-radius: 8px;
+      padding: 18px 45px;
+      border-radius: 10px;
       font-size: 1.1em;
       text-decoration: none;
       font-weight: 600;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 30px;
       transition: all 0.3s ease;
       border: 2px solid var(--accent);
       box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+      min-height: 55px;
+      min-width: 250px;
     }
     
     .btn:hover {
@@ -104,45 +112,66 @@
     /* Statistiques de confiance */
     .stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin: 60px auto;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+      gap: clamp(15px, 3vw, 20px);
+      margin: clamp(40px, 8vw, 60px) auto;
+      max-width: 1200px;
+      padding: 0 20px;
       text-align: center;
     }
     
     .stat-item {
       background: white;
-      padding: 30px 20px;
-      border-radius: 10px;
+      padding: clamp(25px, 5vw, 30px) 20px;
+      border-radius: 12px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-5px);
     }
     
     .stat-number {
-      font-size: 2.5em;
+      font-size: clamp(2em, 5vw, 2.5em);
       font-weight: bold;
       color: var(--accent);
       display: block;
+      line-height: 1;
     }
     
     .stat-label {
       color: var(--text);
-      font-size: 0.9em;
+      font-size: clamp(0.85em, 2vw, 0.9em);
       font-weight: 500;
+      margin-top: 8px;
     }
     
     /* Services avec icônes personnalisées */
+    section {
+      padding: clamp(40px, 8vw, 80px) 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h2 {
+      font-size: clamp(1.8em, 4vw, 2.5em);
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--dark-blue);
+    }
+    
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: clamp(20px, 4vw, 30px);
       margin-top: 40px;
     }
     
     .service {
       background: #fff;
-      padding: 40px 30px;
-      border-radius: 12px;
+      padding: clamp(30px, 5vw, 40px) 25px;
+      border-radius: 15px;
       text-align: center;
       box-shadow: 0 8px 25px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
@@ -172,15 +201,22 @@
     }
     
     .service-icon {
-      font-size: 3em;
+      font-size: clamp(2.5em, 6vw, 3em);
       margin-bottom: 20px;
       display: block;
     }
     
     .service h3 {
-      font-size: 1.4em;
+      font-size: clamp(1.2em, 3vw, 1.4em);
       margin-bottom: 15px;
       color: var(--dark-blue);
+      line-height: 1.3;
+    }
+    
+    .service p {
+      color: #666;
+      line-height: 1.6;
+      font-size: clamp(0.95em, 2.5vw, 1em);
     }
     
     /* Section urgence premium */
@@ -189,9 +225,9 @@
       color: white;
       text-align: center;
       border-radius: 20px;
-      margin: 60px auto;
-      max-width: 1000px;
-      padding: 70px 40px;
+      margin: clamp(40px, 8vw, 60px) auto;
+      max-width: 1200px;
+      padding: clamp(50px, 10vw, 70px) 30px;
       position: relative;
       overflow: hidden;
     }
@@ -216,9 +252,9 @@
     .emergency-badge {
       background: white;
       color: var(--accent);
-      padding: 10px 25px;
+      padding: 12px 30px;
       border-radius: 25px;
-      font-size: 1em;
+      font-size: clamp(0.9em, 2.5vw, 1em);
       font-weight: 700;
       display: inline-block;
       margin-bottom: 20px;
@@ -227,7 +263,7 @@
     }
     
     .phone-large {
-      font-size: 2.5em;
+      font-size: clamp(1.8em, 5vw, 2.5em);
       font-weight: bold;
       color: white;
       text-decoration: none;
@@ -236,23 +272,31 @@
       position: relative;
       z-index: 2;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .phone-large:hover {
+      transform: scale(1.05);
     }
     
     /* Témoignages */
     .testimonials {
       background: white;
       border-radius: 20px;
-      padding: 60px 40px;
-      margin: 60px auto;
-      max-width: 1000px;
+      padding: clamp(40px, 8vw, 60px) 30px;
+      margin: clamp(40px, 8vw, 60px) auto;
+      max-width: 1200px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
     
     .testimonial {
       text-align: center;
       font-style: italic;
-      font-size: 1.1em;
+      font-size: clamp(1em, 2.5vw, 1.1em);
       margin-bottom: 30px;
       position: relative;
+      line-height: 1.7;
+      padding: 0 10px;
     }
     
     .testimonial::before {
@@ -269,6 +313,8 @@
       color: var(--accent);
       font-weight: bold;
       font-style: normal;
+      margin-top: 10px;
+      display: block;
     }
     
     /* Footer amélioré */
@@ -282,7 +328,7 @@
     .certifications {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: clamp(15px, 3vw, 30px);
       margin: 20px 0;
       flex-wrap: wrap;
     }
@@ -290,22 +336,79 @@
     .certification {
       background: rgba(255,255,255,0.1);
       padding: 10px 20px;
-      border-radius: 6px;
-      font-size: 0.9em;
+      border-radius: 8px;
+      font-size: clamp(0.8em, 2.5vw, 0.9em);
+      transition: all 0.3s ease;
     }
     
-    /* Responsive */
+    .certification:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+    
+    footer p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+    
+    footer a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    footer a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Mobile spécifique */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2em;
+      .trust-banner {
+        padding: 10px;
       }
       
+      header {
+        padding: 60px 15px;
+      }
+      
+      .btn {
+        min-width: 220px;
+        padding: 16px 35px;
+      }
+      
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .emergency {
+        margin: 30px 15px;
+        padding: 40px 20px;
+      }
+      
+      .testimonials {
+        margin: 30px 15px;
+        padding: 30px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
       .stats {
         grid-template-columns: 1fr;
       }
       
-      .phone-large {
-        font-size: 1.8em;
+      .services {
+        grid-template-columns: 1fr;
+      }
+      
+      .certifications {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .certification {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
       }
     }
   </style>
@@ -391,7 +494,7 @@
     <div class="certification">⭐ 5/5 Avis Clients</div>
   </div>
   <p>Artisan Plombier Paris © 2024 - Expert en dépannage, installation et rénovation</p>
-  <p style="margin-top: 10px; opacity: 0.8;">📞 <a href="tel:0176543210" style="color: white;">01 76 54 32 10</a> | 📧 <a href="mailto:contact@artisan-plombier.fr" style="color: white;">contact@artisan-plombier.fr</a></p>
+  <p style="margin-top: 10px; opacity: 0.8;">📞 <a href="tel:0176543210">01 76 54 32 10</a> | 📧 <a href="mailto:contact@artisan-plombier.fr">contact@artisan-plombier.fr</a></p>
 </footer>
 
 </body>
